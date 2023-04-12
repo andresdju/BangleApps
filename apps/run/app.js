@@ -2,8 +2,8 @@ var ExStats = require("exstats");
 var B2 = process.env.HWVERSION===2;
 var Layout = require("Layout");
 var locale = require("locale");
-var fontValueSmall = B2 ? "Vector:30" : "Vector:24";
-var fontValueLarge = B2 ? "Vector:50" : "Vector:40";
+var fontValueSmall = B2 ? "6x15:3" : "6x8:4";
+var fontValueLarge = B2 ? "6x15:5" : "6x8:7";
 var fixCount = 0;
 var isMenuDisplayed = false;
 
