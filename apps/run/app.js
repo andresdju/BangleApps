@@ -2,9 +2,8 @@ var ExStats = require("exstats");
 var B2 = process.env.HWVERSION===2;
 var Layout = require("Layout");
 var locale = require("locale");
-var fontHeading = "6x8:2";
-var fontValue = B2 ? "6x15:2" : "6x8:3";
-var headingCol = "#888";
+var fontValueSmall = B2 ? "Vector:30" : "Vector:24";
+var fontValueLarge = B2 ? "Vector:50" : "Vector:40";
 var fixCount = 0;
 var isMenuDisplayed = false;
 
@@ -15,12 +14,12 @@ Bangle.drawWidgets();
 // ---------------------------
 let settings = Object.assign({
   record: true,
-  B1: "dist",
-  B2: "time",
-  B3: "pacea",
-  B4: "bpm",
-  B5: "step",
-  B6: "caden",
+  B1: "time",
+  B2: "zzz",
+  B3: "dist",
+  B4: "caden",
+  B5: "pacea",
+  B6: "bpm",
   paceLength: 1000,
   notify: {
     dist: {
@@ -42,7 +41,6 @@ var exs = ExStats.getStats(statIDs, settings);
 // ---------------------------
 
 function setStatus(running) {
-  layout.button.label = running ? "STOP" : "START";
   layout.status.label = running ? "RUN" : "STOP";
   layout.status.bgCol = running ? "#0f0" : "#f00";
   layout.render();
@@ -95,10 +93,8 @@ var lc = [];
 for (var i=0;i<statIDs.length;i+=2) {
   var sa = exs.stats[statIDs[i+0]];
   var sb = exs.stats[statIDs[i+1]];
+  var fontValue = i<=1 ? fontValueLarge : fontValueSmall;
   lc.push({ type:"h", filly:1, c:[
-    sa?{type:"txt", font:fontHeading, label:sa.title.toUpperCase(), fillx:1, col:headingCol }:{},
-    sb?{type:"txt", font:fontHeading, label:sb.title.toUpperCase(), fillx:1, col:headingCol }:{}
-  ]}, { type:"h", filly:1, c:[
     sa?{type:"txt", font:fontValue, label:sa.getString(), id:sa.id, fillx:1 }:{},
     sb?{type:"txt", font:fontValue, label:sb.getString(), id:sb.id, fillx:1 }:{}
   ]});
