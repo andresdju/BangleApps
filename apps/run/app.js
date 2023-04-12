@@ -2,6 +2,7 @@ var ExStats = require("exstats");
 var B2 = process.env.HWVERSION===2;
 var Layout = require("Layout");
 var locale = require("locale");
+var fontHeading = "6x8:2";
 var fontValueSmall = B2 ? "6x15:3" : "6x8:4";
 var fontValueLarge = B2 ? "6x15:5" : "6x8:7";
 var fixCount = 0;
