@@ -3,8 +3,8 @@ var B2 = process.env.HWVERSION===2;
 var Layout = require("Layout");
 var locale = require("locale");
 var fontHeading = "6x8:2";
-var fontValueSmall = B2 ? "6x15:3" : "6x8:4";
-var fontValueLarge = B2 ? "6x15:5" : "6x8:7";
+var fontValueSmall = B2 ? "Vector:30" : "Vector:24";
+var fontValueLarge = B2 ? "Vector:50" : "Vector:40";
 var fixCount = 0;
 var isMenuDisplayed = false;
 
@@ -16,7 +16,7 @@ Bangle.drawWidgets();
 let settings = Object.assign({
   record: true,
   B1: "time",
-  B2: "caden",
+  B2: "zzz",
   B3: "dist",
   B4: "caden",
   B5: "pacea",
