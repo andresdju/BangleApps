@@ -16,7 +16,7 @@ Bangle.drawWidgets();
 let settings = Object.assign({
   record: true,
   B1: "time",
-  B2: "zzz",
+  B2: "caden",
   B3: "dist",
   B4: "caden",
   B5: "pacea",
