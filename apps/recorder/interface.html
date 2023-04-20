@@ -284,7 +284,6 @@ ${trackData.Latitude ? `
            Util.showModal("Deleting Track...");
            Util.eraseStorageFile(filename,()=>{
              Util.hideModal();
-             getTrackList();
            });
          }
          if (task=="downloadkml") {
