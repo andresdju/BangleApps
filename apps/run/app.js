@@ -3,8 +3,8 @@ var B2 = process.env.HWVERSION===2;
 var Layout = require("Layout");
 var locale = require("locale");
 var fontHeading = "6x8:2";
-var fontValueSmall = B2 ? "6x15:3" : "6x8:5";
-var fontValueLarge = B2 ? "6x15:5" : "6x8:8";
+var fontValueSmall = B2 ? "6x15:2" : "6x8:3";
+var fontValueLarge = B2 ? "6x15:4" : "6x8:6";
 var fixCount = 0;
 var isMenuDisplayed = false;
 
