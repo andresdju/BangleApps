@@ -16,10 +16,10 @@ Bangle.drawWidgets();
 let settings = Object.assign({
   record: true,
   B1: "time",
-  B2: "zzz",
+  B2: "pacea",
   B3: "dist",
   B4: "caden",
-  B5: "pacea",
+  B5: "pacec",
   B6: "bpm",
   paceLength: 1000,
   notify: {
@@ -94,11 +94,17 @@ var lc = [];
 for (var i=0;i<statIDs.length;i+=2) {
   var sa = exs.stats[statIDs[i+0]];
   var sb = exs.stats[statIDs[i+1]];
-  var fontValue = i<=1 ? fontValueLarge : fontValueSmall;
-  lc.push({ type:"h", filly:1, c:[
-    sa?{type:"txt", font:fontValue, label:sa.getString(), id:sa.id, fillx:1 }:{},
-    sb?{type:"txt", font:fontValue, label:sb.getString(), id:sb.id, fillx:1 }:{}
-  ]});
+  if (i==0){
+    lc.push({ type:"h", filly:1, c:[
+      sa?{type:"txt", font:fontValueLarge, label:sa.getString(), id:sa.id, fillx:1 }:{}
+    ]});
+  }
+  else{
+    lc.push({ type:"h", filly:1, c:[
+      sa?{type:"txt", font:fontValueSmall, label:sa.getString(), id:sa.id, fillx:1 }:{},
+      sb?{type:"txt", font:fontValueSmall, label:sb.getString(), id:sb.id, fillx:1 }:{}
+    ]});
+  }
   if (sa) sa.on('changed', e=>layout[e.id].label = e.getString());
   if (sb) sb.on('changed', e=>layout[e.id].label = e.getString());
 }
